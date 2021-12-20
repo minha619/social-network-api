@@ -80,13 +80,13 @@ const thoughtController = {
             { _id: params.thoughtId },
             { $push: { reactions: body } },
             { new: true })
-
             .then(dbThoughtsData => {
                 if (!dbThoughtsData) {
                     res.status(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
                 res.json(dbThoughtsData);
+                
             })
             .catch(err => res.json(err));
     },
